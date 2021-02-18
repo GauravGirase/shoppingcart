@@ -1,0 +1,66 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block body %}
+{% load cart %}
+{% load custom_filter %}
+{% if orders %}
+<div class="container cart-table">
+   <div class="border rounded p-4 m-4">
+        <p class="display-4 pl-4 ml-4">Placed Orders</p>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for order in orders %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img style="height: 80px;" class="rounded-circle" src="{{order.product.image.url}}" alt=""></td>
+                    <td>{{order.product.name}}</td>
+                    <td>{{order.price|currency}}</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.quantity|multiply:order.price|currency}}</td>
+                    {% if order.status %}
+                        <td ><span class="badge rounded-pill bg-success">Completed</span></td>
+                    {% else %}
+                        <td ><span class="badge rounded-pill bg-warning">Pending</span></td>
+                    {% endif %}
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+   </div>
+</div>
+{% else %}
+<div class="container ">
+    <div class=" col-5 mx-auto border rounded p-4 m-4 order-block">
+        <div class="container mx-0">
+            <img  src="{% static 'images/no.png' %}">
+            <p class="alert alert-danger">No Orders Yet..!</p>
+
+        </div>
+
+    </div>
+
+</div>
+{% endif %}
+
+
+{% endblock body %}

@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="p-4 m-4">
+
+        <div class="col-lg-4 mx-auto border border-dark rounded p-2 mt-2 sign-block">
+            <div class="row justify-content-center ">
+                <h1>Checkout</h1>
+            </div>
+            <form action="{% url 'checkout' %}" method="POST">
+                {% csrf_token %}
+                 <div class="form-group">
+                    <label for="">Mobile No</label>
+                    <input required type="text" name="mobile" id="" class="form-control" placeholder="">
+                </div>
+                 <div class="form-group">
+                    <label for="">Address</label>
+                     <textarea required  name="address" id="" class="form-control" placeholder=""></textarea>
+                </div>
+                 <div class="form-group mt-3">
+                     <input required class="btn  btn-info col-lg-12 " type="submit" value="Place an Order">
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock body %}
