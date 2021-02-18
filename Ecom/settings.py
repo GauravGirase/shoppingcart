@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'eook)&o8kk%z-70=ldq$a^#x$r($7_^*24yj%vacvf%51tx#o$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://dashboard.heroku.com/apps/shoppingcartdemo2','http://127.0.0.1:8000/']
 
@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
-MEDIA_URL ="/images/"
+MEDIA_URL ="/abcd/"
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR,'static')
 ]
