@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'eook)&o8kk%z-70=ldq$a^#x$r($7_^*24yj%vacvf%51tx#o$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://dashboard.heroku.com/apps/shoppingcartdemo2','http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['https://shopyycart.herokuapp.com/','127.0.0.1']
 
 
 # Application definition
@@ -132,4 +131,3 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 
-django_heroku.settings(locals())
